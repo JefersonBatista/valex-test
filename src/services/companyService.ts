@@ -6,3 +6,5 @@ export async function validateApiKeyOrFail(apiKey: string) {
     throw { type: "unauthorized" };
   }
 }
+
+export default { validateApiKeyOrFail };

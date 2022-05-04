@@ -1,14 +1,16 @@
 import faker from "@faker-js/faker";
 import bcrypt from "bcrypt";
 import dayjs from "dayjs";
-import * as cardRepository from "../repositories/cardRepository.js";
-import * as companyService from "../services/companyService.js";
-import * as employeeService from "../services/employeeService.js";
+import cardRepository, {
+  TransactionTypes,
+} from "../repositories/cardRepository.js";
+import companyService from "../services/companyService.js";
+import employeeService from "../services/employeeService.js";
 
 export async function create(
   apiKey: string,
   employeeId: number,
-  type: cardRepository.TransactionTypes
+  type: TransactionTypes
 ) {
   await companyService.validateApiKeyOrFail(apiKey);
 
@@ -125,3 +127,12 @@ export function validatePasswordOrFail(password: string, cardPassword: string) {
     throw { type: "unauthorized" };
   }
 }
+
+export default {
+  create,
+  activate,
+  validateExpirationDateOrFail,
+  getById,
+  validateCVCOrFail,
+  validatePasswordOrFail,
+};

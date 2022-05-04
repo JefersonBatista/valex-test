@@ -8,3 +8,5 @@ export async function getById(id: number) {
 
   return employee;
 }
+
+export default { getById };
