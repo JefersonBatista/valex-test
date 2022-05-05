@@ -90,7 +90,7 @@ export async function activate(id: number, cvc: string, password: string) {
     throw { type: "bad_request" };
   }
 
-  const password4DigitFormat = /^d{4}$/;
+  const password4DigitFormat = /^\d{4}$/;
   if (!password4DigitFormat.test(password)) {
     throw { type: "bad_request" };
   }
